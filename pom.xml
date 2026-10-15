@@ -5,14 +5,14 @@
 	<parent>
 		<groupId>org.springframework.boot</groupId>
 		<artifactId>spring-boot-starter-parent</artifactId>
-		<version>4.2.0-M2</version>
+		<version>4.1.1</version>
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
 	<groupId>com.luisartr</groupId>
 	<artifactId>Projeto-Controle-Estoque-API</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<name/>
-	<description/>
+    <name>Controle-estoque-padaria-API</name>
+    <description>API de controle de estoque para padarias</description>
 	<url/>
 	<licenses>
 		<license/>
