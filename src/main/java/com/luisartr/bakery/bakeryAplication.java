@@ -1,13 +1,13 @@
-package com.luisartr.Projeto_Controle_Estoque_API;
+package com.luisartr.bakery;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-public class ProjetoControleEstoqueApiApplication {
+public class bakeryAplication {
 
 	public static void main(String[] args) {
-		SpringApplication.run(ProjetoControleEstoqueApiApplication.class, args);
+		SpringApplication.run(bakeryAplication.class, args);
 	}
 
 }
