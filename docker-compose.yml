@@ -1,0 +1,14 @@
+services:
+  db:
+    image: mcr.microsoft.com/mssql/server:2022-latest 
+    container_name: bakery-db
+    environment:
+      ACCEPT_EULA: "Y"
+      MSSQL_SA_PASSWORD: "Bakery@12345"
+    ports:
+      - "1434:1433"
+    volumes:
+      - bakery-data:/var/opt/mssql
+
+volumes:
+  bakery-data:
