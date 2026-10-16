@@ -10,7 +10,7 @@ Ainda está em construção, e o que já funciona está marcado abaixo.
 ## O que a API faz (ou vai fazer)
 
 - [x] Cadastrar e consultar insumos (farinha, açúcar, fermento...)
-- [ ] Cadastrar fornecedores
+- [x] Cadastrar fornecedores
 - [ ] Registrar a entrada de mercadoria, com validade e custo
 - [ ] Cadastrar produtos e suas receitas
 - [ ] Dar baixa nos insumos automaticamente quando algo é produzido
