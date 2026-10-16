@@ -11,7 +11,7 @@ Ainda está em construção, e o que já funciona está marcado abaixo.
 
 - [x] Cadastrar e consultar insumos (farinha, açúcar, fermento...)
 - [x] Cadastrar fornecedores
-- [ ] Registrar a entrada de mercadoria, com validade e custo
+- [x] Registrar a entrada de mercadoria, com validade e custo
 - [ ] Cadastrar produtos e suas receitas
 - [ ] Dar baixa nos insumos automaticamente quando algo é produzido
 - [ ] Registrar perdas e avisar quando um lote está perto de vencer
@@ -57,4 +57,4 @@ curl -X POST http://localhost:8080/ingredients \
 ## Sobre
 
 Feito por Luis Artur. Estou começando na área e usando este projeto para aprender
-na prática. Sugestões são bem-vindas!   
+na prática. Sugestões para o Aprendizado são bem-vindas!   
