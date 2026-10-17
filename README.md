@@ -58,5 +58,5 @@ curl -X POST http://localhost:8080/ingredients \
 
 ## Sobre
 
-Feito por Luis Artur. Estou começando na área e usando este projeto para aprender
+Feito por Luis Artur. Estou começando na área e usando este projeto (Com integração de AI para desenvolvimento) para aprender
 na prática. Sugestões para o Aprendizado são bem-vindas!   

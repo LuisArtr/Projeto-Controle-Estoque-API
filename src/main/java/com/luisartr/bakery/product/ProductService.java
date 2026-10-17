@@ -67,6 +67,7 @@ public class ProductService {
         Product product = getOrThrow(id);
         recipeRepository.deleteByProductId(id);
         productRepository.delete(product);
+        productRepository.flush();
     }
 
     @Transactional

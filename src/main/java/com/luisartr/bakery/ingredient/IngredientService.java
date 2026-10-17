@@ -45,10 +45,12 @@ public class IngredientService {
     @Transactional
     public void delete(Long id) {
         repository.delete(getOrThrow(id));
+        repository.flush();
     }
 
     private Ingredient getOrThrow(Long id) {
         return repository.findById(id)
                 .orElseThrow(() -> new NotFoundException("Insumo não encontrado: " + id));
     }
+
 }

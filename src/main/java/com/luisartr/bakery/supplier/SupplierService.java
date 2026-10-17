@@ -40,12 +40,11 @@ public class SupplierService {
         supplier.update(req.name(), req.contact());
         return SupplierResponse.from(supplier);
     }
-
     @Transactional
     public void delete(Long id) {
         repository.delete(getOrThrow(id));
+        repository.flush();
     }
-
     private Supplier getOrThrow(Long id) {
         return repository.findById(id)
                 .orElseThrow(() -> new NotFoundException("Fornecedor não encontrado: " + id));
