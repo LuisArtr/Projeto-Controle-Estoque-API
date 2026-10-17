@@ -46,6 +46,12 @@ public class StockBatch {
         this.currentQuantity = this.currentQuantity.subtract(quantity);
     }
 
+    @Column(name = "expired_processed", nullable = false)
+    private boolean expiredProcessed = false;
+
+    public boolean isExpiredProcessed() { return expiredProcessed; }
+
+    public void markExpiredProcessed() { this.expiredProcessed = true; }
     public Long getId() { return id; }
     public Long getIngredientId() { return ingredientId; }
     public Long getSupplierId() { return supplierId; }
@@ -54,4 +60,6 @@ public class StockBatch {
     public LocalDate getExpirationDate() { return expirationDate; }
     public OffsetDateTime getEnteredAt() { return enteredAt; }
 }
+
+
 

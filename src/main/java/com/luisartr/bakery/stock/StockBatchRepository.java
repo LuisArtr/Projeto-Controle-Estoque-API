@@ -29,4 +29,24 @@ public interface StockBatchRepository extends JpaRepository<StockBatch, Long> {
             """)
     List<StockBatch> findUsableForUpdate(@Param("ingredientId") Long ingredientId,
                                          @Param("today") LocalDate today);
+
+    @Lock(LockModeType.PESSIMISTIC_WRITE)
+    @Query("select b from StockBatch b where b.id = :id")
+    java.util.Optional<StockBatch> findByIdForUpdate(@Param("id") Long id);
+
+    @Query("""
+            select b from StockBatch b
+            where b.currentQuantity > 0
+              and b.expirationDate between :from and :to
+            order by b.expirationDate asc
+            """)
+    List<StockBatch> findExpiringBetween(@Param("from") LocalDate from, @Param("to") LocalDate to);
+
+    @Query("""
+            select b from StockBatch b
+            where b.currentQuantity > 0
+              and b.expirationDate < :today
+              and b.expiredProcessed = false
+            """)
+    List<StockBatch> findExpiredUnprocessed(@Param("today") LocalDate today);
 }

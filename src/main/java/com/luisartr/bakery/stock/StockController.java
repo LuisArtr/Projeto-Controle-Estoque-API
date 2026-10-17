@@ -27,6 +27,16 @@ public class StockController {
                                            Pageable pageable) {
         return service.listBatches(ingredientId, pageable);
     }
+    @PostMapping("/losses")
+    @ResponseStatus(HttpStatus.CREATED)
+    public BatchResponse registerLoss(@Valid @RequestBody LossRequest req) {
+        return service.registerLoss(req);
+    }
+
+    @GetMapping("/alerts")
+    public AlertsResponse alerts(@RequestParam(defaultValue = "7") int days) {
+        return service.alerts(days);
+    }
 
     @GetMapping("/balance/{ingredientId}")
     public BalanceResponse balance(@PathVariable Long ingredientId) {
