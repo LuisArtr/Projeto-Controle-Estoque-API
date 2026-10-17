@@ -1,5 +1,7 @@
 # Controle de Estoque para Padaria
 
+![CI](https://github.com/LuisArtr/Projeto-Controle-Estoque-API/actions/workflows/ci.yml/badge.svg)
+
 Estou construindo uma API para controlar o estoque de uma padaria. A ideia é resolver
 problemas que padaria tem de verdade: ingrediente que vence, receita que gasta vários
 insumos de uma vez e desperdício que ninguém registra.
