@@ -18,4 +18,4 @@ jobs:
           cache: maven
 
       - name: Rodar testes unitários
-        run: mvn -B test -Dtest=FefoAllocatorTestocatorTest
+        run: mvn -B test -Dtest=FefoAllocatorTest
