@@ -14,7 +14,7 @@ Ainda está em construção, e o que já funciona está marcado abaixo.
 - [x] Registrar a entrada de mercadoria, com validade e custo
 - [x] Cadastrar produtos e suas receitas
 - [x] Dar baixa nos insumos automaticamente quando algo é produzido
-- [ ] Registrar perdas e avisar quando um lote está perto de vencer
+- [x] Registrar perdas e avisar quando um lote está perto de vencer
 - [ ] Login e permissões por tipo de usuário
 
 ## Tecnologias
