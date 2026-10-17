@@ -40,6 +40,10 @@ public class StockBatch {
         this.currentQuantity = currentQuantity;
         this.unitCost = unitCost;
         this.expirationDate = expirationDate;
+
+    }
+    public void consume(BigDecimal quantity) {
+        this.currentQuantity = this.currentQuantity.subtract(quantity);
     }
 
     public Long getId() { return id; }
@@ -50,3 +54,4 @@ public class StockBatch {
     public LocalDate getExpirationDate() { return expirationDate; }
     public OffsetDateTime getEnteredAt() { return enteredAt; }
 }
+
