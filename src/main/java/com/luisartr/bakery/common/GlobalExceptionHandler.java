@@ -46,5 +46,10 @@ public class GlobalExceptionHandler {
                 "Operação não permitida: o registro está vinculado a outros dados "
                         + "(lotes, receitas ou produções) ou viola uma regra de unicidade.");
     }
+    @ExceptionHandler(UnauthorizedException.class)
+    public ProblemDetail handleUnauthorized(UnauthorizedException ex) {
+        return ProblemDetail.forStatusAndDetail(HttpStatus.UNAUTHORIZED, ex.getMessage());
+    }
+
 
 }
