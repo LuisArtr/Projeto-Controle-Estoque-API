@@ -10,6 +10,8 @@
         <relativePath/>
     </parent>
 
+
+
     <groupId>com.luisartr</groupId>
     <artifactId>Projeto-Controle-Estoque-API</artifactId>
     <version>0.0.1-SNAPSHOT</version>
@@ -21,6 +23,10 @@
     </properties>
 
     <dependencies>
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-security</artifactId>
+        </dependency>
         <!-- API REST -->
         <dependency>
             <groupId>org.springframework.boot</groupId>
@@ -72,4 +78,6 @@
             </plugin>
         </plugins>
     </build>
+
+
 </project>
