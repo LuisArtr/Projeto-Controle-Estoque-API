@@ -2,6 +2,7 @@ package com.luisartr.bakery.stock;
 
 import jakarta.persistence.*;
 import java.math.BigDecimal;
+import java.time.OffsetDateTime;
 
 @Entity
 @Table(name = "stock_movements")
@@ -36,6 +37,8 @@ public class StockMovement {
         this.quantity = quantity;
         this.reason = reason;
     }
+    @Column(name = "created_at", nullable = false, insertable = false, updatable = false)
+    private OffsetDateTime createdAt;
 
     public Long getId() { return id; }
 }
