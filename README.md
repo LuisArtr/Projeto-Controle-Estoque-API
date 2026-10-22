@@ -19,7 +19,7 @@ Ainda está em construção, e o que já funciona está marcado abaixo.
 - [x] Registrar perdas e avisar quando um lote está perto de vencer
 - [x] Login e permissões por tipo de usuário
 - [x] Relatórios de perdas, consumo e custo por produto
-- [ ] Dados de exemplo para quem clonar o projeto
+- [x] Dados de exemplo para quem clonar o projeto
 - [ ] Testes de integração com banco de verdade
 - [ ] Publicar a API na internet
 
@@ -59,6 +59,13 @@ Depois, rode a aplicação:
 
 No Windows, use `.\mvnw.cmd spring-boot:run`. A API fica em `http://localhost:8080`.
 
+Para já começar com dados de exemplo (insumos, receita do pão francês e lotes), rode com o perfil `dev`:
+
+```bash
+./mvnw spring-boot:run -Dspring-boot.run.profiles=dev
+```
+
+No PowerShell, use aspas: `.\mvnw.cmd spring-boot:run "-Dspring-boot.run.profiles=dev"`.
 ## Documentação
 
 Com a aplicação rodando, abra `http://localhost:8080/swagger-ui.html`.
