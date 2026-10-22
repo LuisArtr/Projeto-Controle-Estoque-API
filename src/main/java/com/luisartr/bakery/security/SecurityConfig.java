@@ -17,6 +17,7 @@ import org.springframework.security.oauth2.jwt.NimbusJwtEncoder;
 import org.springframework.security.oauth2.server.resource.authentication.JwtAuthenticationConverter;
 import org.springframework.security.oauth2.server.resource.authentication.JwtGrantedAuthoritiesConverter;
 import org.springframework.security.web.SecurityFilterChain;
+import org.springframework.http.HttpMethod;
 
 import javax.crypto.SecretKey;
 import javax.crypto.spec.SecretKeySpec;
@@ -46,7 +47,9 @@ public class SecurityConfig {
         return NimbusJwtDecoder.withSecretKey(jwtKey).macAlgorithm(MacAlgorithm.HS256).build();
     }
 
-    /** Lê a claim "role" do token e a transforma em ROLE_ADMIN, ROLE_PADEIRO... */
+    /**
+     * Lê a claim "role" do token e a transforma em ROLE_ADMIN, ROLE_PADEIRO...
+     */
     @Bean
     public JwtAuthenticationConverter jwtAuthenticationConverter() {
         JwtGrantedAuthoritiesConverter authorities = new JwtGrantedAuthoritiesConverter();
@@ -65,6 +68,15 @@ public class SecurityConfig {
                 .sessionManagement(s -> s.sessionCreationPolicy(SessionCreationPolicy.STATELESS))
                 .authorizeHttpRequests(auth -> auth
                         .requestMatchers("/auth/login").permitAll()
+                        .requestMatchers("/swagger-ui/**", "/swagger-ui.html", "/v3/api-docs/**").permitAll()
+                        .requestMatchers("/users/**", "/reports/**").hasRole("ADMIN")
+                        .requestMatchers(HttpMethod.POST, "/production").hasAnyRole("ADMIN", "PADEIRO")
+                        .requestMatchers(HttpMethod.POST, "/stock/entries").hasAnyRole("ADMIN", "ESTOQUISTA")
+                        .requestMatchers(HttpMethod.POST, "/stock/losses").hasAnyRole("ADMIN", "ESTOQUISTA", "PADEIRO")
+                        .requestMatchers(HttpMethod.GET, "/stock/**", "/ingredients/**",
+                                "/suppliers/**", "/products/**").authenticated()
+                        .requestMatchers("/ingredients/**", "/suppliers/**").hasAnyRole("ADMIN", "ESTOQUISTA")
+                        .requestMatchers("/products/**").hasRole("ADMIN")
                         .anyRequest().authenticated())
                 .oauth2ResourceServer(oauth -> oauth
                         .jwt(jwt -> jwt.jwtAuthenticationConverter(converter)));
