@@ -1,6 +1,7 @@
 package com.luisartr.bakery.supplier;
 
 import jakarta.validation.Valid;
+import org.springdoc.core.annotations.ParameterObject;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.http.HttpStatus;
@@ -23,7 +24,7 @@ public class SupplierController {
     }
 
     @GetMapping
-    public Page<SupplierResponse> list(Pageable pageable) {
+    public Page<SupplierResponse> list(@ParameterObject Pageable pageable) {
         return service.list(pageable);
     }
 

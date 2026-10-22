@@ -1,6 +1,7 @@
 package com.luisartr.bakery.ingredient;
 
 import jakarta.validation.Valid;
+import org.springdoc.core.annotations.ParameterObject;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.http.HttpStatus;
@@ -23,7 +24,7 @@ public class IngredientController {
     }
 
     @GetMapping
-    public Page<IngredientResponse> list(Pageable pageable) {
+    public Page<IngredientResponse> list(@ParameterObject Pageable pageable) {
         return service.list(pageable);
     }
 

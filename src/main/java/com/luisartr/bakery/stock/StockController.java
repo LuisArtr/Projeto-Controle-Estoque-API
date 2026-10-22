@@ -1,6 +1,7 @@
 package com.luisartr.bakery.stock;
 
 import jakarta.validation.Valid;
+import org.springdoc.core.annotations.ParameterObject;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.http.HttpStatus;
@@ -24,9 +25,10 @@ public class StockController {
 
     @GetMapping("/batches")
     public Page<BatchResponse> listBatches(@RequestParam(required = false) Long ingredientId,
-                                           Pageable pageable) {
+                                           @ParameterObject Pageable pageable) {
         return service.listBatches(ingredientId, pageable);
     }
+
     @PostMapping("/losses")
     @ResponseStatus(HttpStatus.CREATED)
     public BatchResponse registerLoss(@Valid @RequestBody LossRequest req) {

@@ -1,6 +1,7 @@
 package com.luisartr.bakery.user;
 
 import jakarta.validation.Valid;
+import org.springdoc.core.annotations.ParameterObject;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.http.HttpStatus;
@@ -23,7 +24,7 @@ public class UserController {
     }
 
     @GetMapping
-    public Page<UserResponse> list(Pageable pageable) {
+    public Page<UserResponse> list(@ParameterObject Pageable pageable) {
         return service.list(pageable);
     }
 }
