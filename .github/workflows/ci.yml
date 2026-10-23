@@ -17,5 +17,5 @@ jobs:
           java-version: 21
           cache: maven
 
-      - name: Rodar testes unitários
-        run: mvn -B test -Dtest=FefoAllocatorTest
+      - name: Rodar testes (unitários e de integração)
+        run: mvn -B test
